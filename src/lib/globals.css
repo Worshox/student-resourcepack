@@ -1,6 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@font-face {
+	font-family: 'Now';
+	src: url('./now-regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Now';
+	src: url('./now-bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+:root {
+	--lm-background: #fff2e1;
+	--lm-accent: #f7931e;
+	--lm-font-color: #000;
+}
 
 * {
 	box-sizing: border-box;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Now', sans-serif;
+	font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+}
+
+a {
+	text-decoration: none;
+	color: var(--lm-accent);
 }
