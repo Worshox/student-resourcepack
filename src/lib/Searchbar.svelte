@@ -1,0 +1,48 @@
+<div class="search-box">
+	<label for="search">
+		<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 36 36"
+			><path
+				fill="var(--lm-font-color)"
+				d="M16.33 5.05A10.95 10.95 0 1 1 5.39 16A11 11 0 0 1 16.33 5.05m0-2.05a13 13 0 1 0 13 13a13 13 0 0 0-13-13Z"
+				class="clr-i-outline clr-i-outline-path-1"
+			/><path
+				fill="var(--lm-font-color)"
+				d="m35 33.29l-7.37-7.42l-1.42 1.41l7.37 7.42A1 1 0 1 0 35 33.29Z"
+				class="clr-i-outline clr-i-outline-path-2"
+			/><path fill="none" d="M0 0h36v36H0z" /></svg
+		>
+	</label>
+	<input type="text" id="search" name="search" />
+</div>
+
+<style>
+	.search-box {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		height: 2.5rem;
+		width: 100%;
+		padding-left: 0.5rem;
+		border: 1px solid var(--lm-font-color);
+		border-radius: 2.5rem;
+	}
+
+	label {
+		display: flex;
+	}
+
+	svg {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	input {
+		flex-grow: 1;
+		height: 2.5rem;
+		background: transparent;
+		border: none;
+		border-radius: 2.5rem;
+		font-size: 1rem;
+		line-height: 1rem;
+	}
+</style>
