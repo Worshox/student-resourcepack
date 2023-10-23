@@ -14,43 +14,49 @@
 <section>
 	<div class="topics" bind:this={section} bind:offsetWidth={width}>
 		<div class="topic">
-			<input type="radio" name="topic" id="zdrowie" value="zdrowie" bind:group={topic} />
+			<input type="checkbox" name="topic" id="zdrowie" value="zdrowie" bind:group={topic} />
 			<label for="zdrowie">Zdrowie</label>
 		</div>
 		<div class="topic">
-			<input type="radio" name="topic" id="polityka" value="polityka" bind:group={topic} />
+			<input type="checkbox" name="topic" id="polityka" value="polityka" bind:group={topic} />
 			<label for="polityka">Polityka</label>
 		</div>
 		<div class="topic">
-			<input type="radio" name="topic" id="oszczedzanie" value="oszczedzanie" bind:group={topic} />
+			<input
+				type="checkbox"
+				name="topic"
+				id="oszczedzanie"
+				value="oszczedzanie"
+				bind:group={topic}
+			/>
 			<label for="oszczedzanie">Oszczędzanie</label>
 		</div>
 		<div class="topic">
-			<input type="radio" name="topic" id="poznan" value="poznan" bind:group={topic} />
+			<input type="checkbox" name="topic" id="poznan" value="poznan" bind:group={topic} />
 			<label for="poznan">Poznań</label>
 		</div>
 		<div class="topic">
-			<input type="radio" name="topic" id="jedzenie" value="jedzenie" bind:group={topic} />
+			<input type="checkbox" name="topic" id="jedzenie" value="jedzenie" bind:group={topic} />
 			<label for="jedzenie">Jedzenie</label>
 		</div>
 		<div class="topic">
-			<input type="radio" name="topic" id="transport" value="transport" bind:group={topic} />
+			<input type="checkbox" name="topic" id="transport" value="transport" bind:group={topic} />
 			<label for="transport">Transport</label>
 		</div>
 		<div class="topic">
-			<input type="radio" name="topic" id="studia" value="studia" bind:group={topic} />
+			<input type="checkbox" name="topic" id="studia" value="studia" bind:group={topic} />
 			<label for="studia">Studia</label>
 		</div>
 		<div class="topic">
-			<input type="radio" name="topic" id="praca" value="praca" bind:group={topic} />
+			<input type="checkbox" name="topic" id="praca" value="praca" bind:group={topic} />
 			<label for="praca">Praca</label>
 		</div>
 		<div class="topic">
-			<input type="radio" name="topic" id="mieszkanie" value="mieszkanie" bind:group={topic} />
+			<input type="checkbox" name="topic" id="mieszkanie" value="mieszkanie" bind:group={topic} />
 			<label for="mieszkanie">Mieszkanie</label>
 		</div>
 		<div class="topic">
-			<input type="radio" name="topic" id="wskazowki" value="wskazowki" bind:group={topic} />
+			<input type="checkbox" name="topic" id="wskazowki" value="wskazowki" bind:group={topic} />
 			<label for="wskazowki">Wskazówki</label>
 		</div>
 	</div>
@@ -65,7 +71,6 @@
 	.topics {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
 		gap: 10px;
 		width: max-content;
 		max-height: 8rem;
