@@ -4,4 +4,4 @@
 
 <Topbar menu={true} />
 <h1>Cześć!</h1>
-<h2>REDAKCJA POLECA</h2>
+<h2>POLECAMY</h2>

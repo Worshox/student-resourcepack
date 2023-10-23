@@ -73,7 +73,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		position: center;
+		object-position: center;
 		aspect-ratio: 9/10;
 		border: 5px solid var(--lm-accent);
 		border-radius: 3rem 0 3rem 3rem;

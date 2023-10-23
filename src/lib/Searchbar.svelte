@@ -39,6 +39,7 @@
 	input {
 		flex-grow: 1;
 		height: 2.5rem;
+		padding-left: 1rem;
 		background: transparent;
 		border: none;
 		border-radius: 2.5rem;

@@ -17,7 +17,9 @@
 
 <style>
 	h1 {
-		text-align: center;
+		width: clamp(18rem, 70vw, 22rem);
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	section {
