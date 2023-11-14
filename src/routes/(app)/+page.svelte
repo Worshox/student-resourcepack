@@ -38,9 +38,24 @@
 		<!-- {/each} -->
 	</div>
 	<nav>
-		<button class={activeImage == 0 ? 'active' : ''}>&bull;</button>
-		<button class={activeImage == 1 ? 'active' : ''}>&bull;</button>
-		<button class={activeImage == 2 ? 'active' : ''}>&bull;</button>
+		<button
+			class={activeImage == 0 ? 'active' : ''}
+			on:click={() => {
+				activeImage = 0;
+			}}>&bull;</button
+		>
+		<button
+			class={activeImage == 1 ? 'active' : ''}
+			on:click={() => {
+				activeImage = 1;
+			}}>&bull;</button
+		>
+		<button
+			class={activeImage == 2 ? 'active' : ''}
+			on:click={() => {
+				activeImage = 2;
+			}}>&bull;</button
+		>
 	</nav>
 </section>
 
