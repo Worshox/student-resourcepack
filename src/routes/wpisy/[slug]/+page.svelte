@@ -28,7 +28,7 @@
 	}
 
 	article {
-		padding: 1rem 1.5rem 5rem;
+		padding: 1rem 1.5rem 4rem;
 	}
 
 	div {

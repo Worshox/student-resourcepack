@@ -41,6 +41,6 @@
 	main {
 		overflow-y: auto;
 		overflow-x: hidden;
-		padding: 5rem 1rem;
+		padding: 4rem 1rem;
 	}
 </style>

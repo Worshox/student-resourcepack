@@ -43,24 +43,4 @@
 		overflow-x: hidden;
 		padding: 0;
 	}
-
-	nav {
-		overflow: hidden;
-		position: fixed;
-		bottom: 0;
-		z-index: 1;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		width: 100%;
-		max-width: 480px;
-		height: fit-content;
-		padding: 0.5rem;
-		background-color: var(--lm-accent);
-	}
-
-	svg {
-		width: 2.25rem;
-		height: 2.25rem;
-	}
 </style>
