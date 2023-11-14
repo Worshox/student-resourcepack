@@ -1,48 +1,53 @@
 <script>
-	export let href = '#';
-	export let src = 'placeholder.webp';
-	export let alt = 'Lorem Ipsum';
+	export let href;
+	export let src;
+	export let alt;
+	export let datetime;
+	export let published;
+	export let title;
+	export let author;
+	export let categories;
 
 	let unsaved = true;
 </script>
 
 <article>
-	<a {href}>
-		<figure>
-			<img {src} {alt} />
-			<button
-				on:click={() => {
-					unsaved = !unsaved;
-				}}
+	<figure>
+		<a {href}>
+			<img {src} {alt} lazyloading />
+		</a>
+		<button
+			on:click={() => {
+				unsaved = !unsaved;
+			}}
+		>
+			<svg
+				class="saved-button"
+				class:unsaved
+				xmlns="http://www.w3.org/2000/svg"
+				width="100"
+				height="100"
+				viewBox="0 0 36 36"
+				><path
+					d="M26 2H10a2 2 0 0 0-2 2v27.93a2 2 0 0 0 3.42 1.41l6.54-6.52l6.63 6.6A2 2 0 0 0 28 32V4a2 2 0 0 0-2-2Z"
+					class="clr-i-solid clr-i-solid-path-1"
+				/><path fill="none" d="M0 0h36v36H0z" /></svg
 			>
-				<svg
-					class="saved-button"
-					class:unsaved
-					xmlns="http://www.w3.org/2000/svg"
-					width="100"
-					height="100"
-					viewBox="0 0 36 36"
-					><path
-						fill="var(--lm-background)"
-						d="M26 2H10a2 2 0 0 0-2 2v27.93a2 2 0 0 0 3.42 1.41l6.54-6.52l6.63 6.6A2 2 0 0 0 28 32V4a2 2 0 0 0-2-2Z"
-						class="clr-i-solid clr-i-solid-path-1"
-					/><path fill="none" d="M0 0h36v36H0z" /></svg
-				>
-				<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 36 36"
-					><path
-						fill="var(--lm-background)"
-						d="M26 34a2 2 0 0 1-1.41-.58L18 26.82l-6.54 6.52A2 2 0 0 1 8 31.93V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2Zm0-2V4H10v27.93L18 24Z"
-						class="clr-i-outline clr-i-outline-path-1"
-					/><path fill="none" d="M0 0h36v36H0z" /></svg
-				>
-			</button>
-			<figcaption>
-				<time datetime="2023-10-19">19.10.2023</time>
-				<h2>Lorem ipsum</h2>
-				<address>Martyna Nowak</address>
-			</figcaption>
-		</figure>
-	</a>
+			<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 36 36"
+				><path
+					d="M26 34a2 2 0 0 1-1.41-.58L18 26.82l-6.54 6.52A2 2 0 0 1 8 31.93V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2Zm0-2V4H10v27.93L18 24Z"
+					class="clr-i-outline clr-i-outline-path-1"
+				/><path fill="none" d="M0 0h36v36H0z" /></svg
+			>
+		</button>
+		<figcaption>
+			<a {href}>
+				<time {datetime}>{published}</time>
+				<h2>{title}</h2>
+				<address>{author}</address>
+			</a>
+		</figcaption>
+	</figure>
 </article>
 
 <style>
@@ -52,6 +57,7 @@
 
 	figure {
 		position: relative;
+		z-index: 1;
 		margin: 0;
 	}
 
@@ -68,6 +74,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
+		z-index: 2;
 		display: flex;
 		padding: 0.25rem 0.125rem;
 		background: var(--lm-accent);
@@ -79,6 +86,7 @@
 	svg {
 		width: 2rem;
 		height: 2rem;
+		fill: var(--lm-background);
 	}
 
 	.saved-button {
@@ -90,10 +98,10 @@
 		opacity: 0;
 	}
 
-	figcaption {
+	figcaption a {
 		margin-top: 0.5rem;
 		display: grid;
-		gap: 0.375rem;
+		gap: 0.5rem;
 	}
 
 	h2 {

@@ -14,12 +14,16 @@
 <section>
 	<div class="topics" bind:this={section} bind:offsetWidth={width}>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="zdrowie" value="zdrowie" bind:group={topic} />
-			<label for="zdrowie">Zdrowie</label>
+			<input type="checkbox" name="topic" id="mieszkanie" value="mieszkanie" bind:group={topic} />
+			<label for="mieszkanie">Mieszkanie</label>
 		</div>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="polityka" value="polityka" bind:group={topic} />
-			<label for="polityka">Polityka</label>
+			<input type="checkbox" name="topic" id="ekonomia" value="ekonomia" bind:group={topic} />
+			<label for="ekonomia">Ekonomia</label>
+		</div>
+		<div class="topic">
+			<input type="checkbox" name="topic" id="zdrowie" value="zdrowie" bind:group={topic} />
+			<label for="zdrowie">Zdrowie</label>
 		</div>
 		<div class="topic">
 			<input
@@ -32,32 +36,16 @@
 			<label for="oszczedzanie">Oszczędzanie</label>
 		</div>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="poznan" value="poznan" bind:group={topic} />
-			<label for="poznan">Poznań</label>
-		</div>
-		<div class="topic">
-			<input type="checkbox" name="topic" id="jedzenie" value="jedzenie" bind:group={topic} />
-			<label for="jedzenie">Jedzenie</label>
-		</div>
-		<div class="topic">
-			<input type="checkbox" name="topic" id="transport" value="transport" bind:group={topic} />
-			<label for="transport">Transport</label>
-		</div>
-		<div class="topic">
-			<input type="checkbox" name="topic" id="studia" value="studia" bind:group={topic} />
-			<label for="studia">Studia</label>
-		</div>
-		<div class="topic">
 			<input type="checkbox" name="topic" id="praca" value="praca" bind:group={topic} />
 			<label for="praca">Praca</label>
 		</div>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="mieszkanie" value="mieszkanie" bind:group={topic} />
-			<label for="mieszkanie">Mieszkanie</label>
+			<input type="checkbox" name="topic" id="prawo" value="prawo" bind:group={topic} />
+			<label for="prawo">Prawo</label>
 		</div>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="wskazowki" value="wskazowki" bind:group={topic} />
-			<label for="wskazowki">Wskazówki</label>
+			<input type="checkbox" name="topic" id="inne" value="inne" bind:group={topic} />
+			<label for="inne">Inne</label>
 		</div>
 	</div>
 </section>

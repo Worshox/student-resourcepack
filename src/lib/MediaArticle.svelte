@@ -1,6 +1,6 @@
 <script>
 	export let href = '#';
-	export let src = 'placeholder.webp';
+	export let src = 'https://picsum.photos/300';
 	export let alt = 'Lorem Ipsum';
 
 	let unsaved = true;
@@ -9,7 +9,7 @@
 <article>
 	<a {href}>
 		<figure>
-			<img {src} {alt} />
+			<img {src} {alt} lazyloading />
 			<button
 				on:click={() => {
 					unsaved = !unsaved;

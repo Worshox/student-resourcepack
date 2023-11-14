@@ -46,4 +46,8 @@
 		font-size: 1rem;
 		line-height: 1rem;
 	}
+
+	input:focus-visible {
+		border: 2px solid var(--lm-accent);
+	}
 </style>
