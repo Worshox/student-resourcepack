@@ -1,7 +1,6 @@
 <script>
 	import '$lib/globals.css';
-	import '$lib/Navbar.svelte';
-	import Navbar from '../../lib/Navbar.svelte';
+	import Navbar from '$lib/Navbar.svelte';
 
 	let appWidth;
 </script>
