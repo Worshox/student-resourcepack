@@ -14,13 +14,15 @@
 		if (touchendX < touchstartX && activeImage < 2) activeImage++;
 		if (touchendX > touchstartX && activeImage > 0) activeImage--;
 	}
+
+	let width;
 </script>
 
 <Topbar menu={true} />
 <h1>Cześć!</h1>
 <h2>POLECAMY</h2>
 
-<section>
+<section bind:offsetWidth={width}>
 	<div
 		on:touchstart={(e) => {
 			touchstartX = e.changedTouches[0].screenX;
@@ -31,11 +33,9 @@
 		}}
 		class={activeImage === 1 ? 'slide-1' : activeImage === 2 ? 'slide-2' : ''}
 	>
-		<!-- {#each posts as post} -->
-		<HeroArticle {...posts[0]} />
-		<HeroArticle {...posts[0]} />
-		<HeroArticle {...posts[0]} />
-		<!-- {/each} -->
+		{#each posts as post}
+			<HeroArticle {...post} {width} />
+		{/each}
 	</div>
 	<nav>
 		<button
