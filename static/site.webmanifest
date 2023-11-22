@@ -1,1 +1,30 @@
-{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+	"name": "Nas Nie Nauczyli",
+	"short_name": "NNN",
+	"description": "Porady dla bezradnych",
+	"icons": [
+		{ "src": "/favicon/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+		{ "src": "/favicon/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+	],
+	"id": "/",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"background_color": "#fff2e1",
+	"theme_color": "#f7931e",
+	"orientation": "portrait",
+	"screenshots": [
+		{
+			"src": "/ss-narrow.png",
+			"type": "image/png",
+			"sizes": "1080x1440",
+			"form_factor": "narrow"
+		},
+		{
+			"src": "/ss-wide.png",
+			"type": "image/png",
+			"sizes": "1440x1080",
+			"form_factor": "wide"
+		}
+	]
+}
