@@ -12,6 +12,7 @@ export async function load(event) {
 		const datetime = new Date(rawPost.created);
 
 		posts.push({
+			slug: rawPost.slug,
 			href: `/wpisy/${rawPost.slug}`,
 			src: `https://student-resourcepack.pockethost.io/api/files/posts/${rawPost.id}/${rawPost.img}`,
 			alt: rawPost.img_alt,

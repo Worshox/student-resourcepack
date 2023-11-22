@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { topicFilters } from '../stores.js';
 
 	let section;
 	let width;
@@ -7,22 +8,32 @@
 	onMount(() => {
 		section.style.maxWidth = `${width / 1.85}px`;
 	});
-
-	let topic = '';
 </script>
 
 <section>
 	<div class="topics" bind:this={section} bind:offsetWidth={width}>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="mieszkanie" value="mieszkanie" bind:group={topic} />
+			<input
+				type="checkbox"
+				name="topic"
+				id="mieszkanie"
+				value="mieszkanie"
+				bind:group={$topicFilters}
+			/>
 			<label for="mieszkanie">Mieszkanie</label>
 		</div>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="ekonomia" value="ekonomia" bind:group={topic} />
+			<input
+				type="checkbox"
+				name="topic"
+				id="ekonomia"
+				value="ekonomia"
+				bind:group={$topicFilters}
+			/>
 			<label for="ekonomia">Ekonomia</label>
 		</div>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="zdrowie" value="zdrowie" bind:group={topic} />
+			<input type="checkbox" name="topic" id="zdrowie" value="zdrowie" bind:group={$topicFilters} />
 			<label for="zdrowie">Zdrowie</label>
 		</div>
 		<div class="topic">
@@ -31,20 +42,20 @@
 				name="topic"
 				id="oszczedzanie"
 				value="oszczedzanie"
-				bind:group={topic}
+				bind:group={$topicFilters}
 			/>
 			<label for="oszczedzanie">Oszczędzanie</label>
 		</div>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="praca" value="praca" bind:group={topic} />
+			<input type="checkbox" name="topic" id="praca" value="praca" bind:group={$topicFilters} />
 			<label for="praca">Praca</label>
 		</div>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="prawo" value="prawo" bind:group={topic} />
+			<input type="checkbox" name="topic" id="prawo" value="prawo" bind:group={$topicFilters} />
 			<label for="prawo">Prawo</label>
 		</div>
 		<div class="topic">
-			<input type="checkbox" name="topic" id="inne" value="inne" bind:group={topic} />
+			<input type="checkbox" name="topic" id="inne" value="inne" bind:group={$topicFilters} />
 			<label for="inne">Inne</label>
 		</div>
 	</div>

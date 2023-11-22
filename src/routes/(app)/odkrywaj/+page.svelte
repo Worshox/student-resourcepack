@@ -6,7 +6,18 @@
 	import Searchbar from '$lib/Searchbar.svelte';
 	import Article from '$lib/Article.svelte';
 
+	import { topicFilters } from '../../../stores.js';
+
 	const posts = data.posts;
+
+	$: filteredPosts =
+		$topicFilters.length > 0
+			? posts.filter((post) =>
+					post.categories.some((element) => {
+						return $topicFilters.includes(element);
+					})
+			  )
+			: posts;
 </script>
 
 <Topbar menu={true} />
@@ -17,7 +28,7 @@
 <Topics />
 
 <section>
-	{#each posts as post}
+	{#each filteredPosts as post}
 		<Article {...post} />
 	{/each}
 
