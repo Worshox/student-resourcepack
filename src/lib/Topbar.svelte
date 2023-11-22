@@ -4,6 +4,57 @@
 	export let actions = false;
 
 	import { page } from '$app/stores';
+	// import SharePopup from '$lib/SharePopup.svelte';
+	// let showSharepopup = false;
+
+	let shareData = {
+		title: `Nas Nie Nauczono - ${$page.data.title}`,
+		text: 'Przeczytaj ten artykuł!',
+		url: $page.url
+	};
+
+	import { db } from '../db.js';
+
+	let unsaved = true;
+	let savedID;
+
+	db.savedPosts
+		.where('slug')
+		.equals($page.params.slug)
+		.first()
+		.then((result) => {
+			if (result) {
+				unsaved = false;
+				savedID = result.id;
+			}
+		});
+
+	async function savePost() {
+		try {
+			const id = await db.savedPosts.add({
+				slug: $page.params.slug,
+				href: $page.url.pathname,
+				src: $page.data.post.src,
+				alt: $page.data.post.alt,
+				datetime: $page.data.post.datetime,
+				published: $page.data.post.published,
+				title: $page.data.post.title,
+				author: $page.data.post.author
+			});
+
+			savedID = id;
+		} catch (error) {
+			console.error(`Failed to save post: ${error}`);
+		}
+	}
+
+	async function unsavePost() {
+		try {
+			await db.savedPosts.delete(savedID);
+		} catch (error) {
+			console.error(`Failed to unsave post: ${error}`);
+		}
+	}
 </script>
 
 <header>
@@ -43,7 +94,15 @@
 	</div>
 	{#if actions}
 		<div class="right">
-			<button>
+			<button
+				on:click={async () => {
+					try {
+						await navigator.share(shareData);
+					} catch (err) {
+						console.log(`Error: ${err}`);
+					}
+				}}
+			>
 				<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 36 36"
 					><path
 						d="M27.53 24a5 5 0 0 0-3.6 1.55l-12.19-6.1a4.47 4.47 0 0 0 0-2.8l12.21-6.21a5.12 5.12 0 1 0-1.07-1.7l-12.09 6.15a5 5 0 1 0 0 6.33l12.06 6.07a4.93 4.93 0 0 0-.31 1.71a5 5 0 1 0 5-5Zm0-20a3 3 0 1 1-3 3a3 3 0 0 1 3-3ZM7 21a3 3 0 1 1 3-3a3 3 0 0 1-3 3Zm20.53 11a3 3 0 1 1 3-3a3 3 0 0 1-3 3Z"
@@ -52,7 +111,28 @@
 				>
 			</button>
 			<div class="separator" />
-			<button>
+			<button
+				on:click={() => {
+					if (unsaved) {
+						savePost();
+					} else {
+						unsavePost();
+					}
+					unsaved = !unsaved;
+				}}
+			>
+				<svg
+					class="saved-button"
+					class:unsaved
+					xmlns="http://www.w3.org/2000/svg"
+					width="100"
+					height="100"
+					viewBox="0 0 36 36"
+					><path
+						d="M26 2H10a2 2 0 0 0-2 2v27.93a2 2 0 0 0 3.42 1.41l6.54-6.52l6.63 6.6A2 2 0 0 0 28 32V4a2 2 0 0 0-2-2Z"
+						class="clr-i-solid clr-i-solid-path-1"
+					/><path fill="none" d="M0 0h36v36H0z" /></svg
+				>
 				<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 36 36"
 					><path
 						d="M26 34a2 2 0 0 1-1.41-.58L18 26.82l-6.54 6.52A2 2 0 0 1 8 31.93V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2Zm0-2V4H10v27.93L18 24Z"
@@ -63,6 +143,10 @@
 		</div>
 	{/if}
 </header>
+
+<!-- {#if showSharepopup}
+	<SharePopup postURL={$page.url} />
+{/if} -->
 
 <style>
 	header {
@@ -125,5 +209,14 @@
 
 	.active svg {
 		fill: var(--lm-accent);
+	}
+
+	.saved-button {
+		margin-right: -1.75rem;
+		transition: 0.3s;
+	}
+
+	.unsaved {
+		opacity: 0;
 	}
 </style>

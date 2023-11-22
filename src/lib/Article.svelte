@@ -1,4 +1,5 @@
 <script>
+	export let slug;
 	export let href;
 	export let src;
 	export let alt;
@@ -6,9 +7,50 @@
 	export let published;
 	export let title;
 	export let author;
-	export let categories;
+	export let categories = [];
+
+	import { db } from '../db.js';
 
 	let unsaved = true;
+	let savedID;
+
+	db.savedPosts
+		.where('slug')
+		.equals(slug)
+		.first()
+		.then((result) => {
+			if (result) {
+				unsaved = false;
+				savedID = result.id;
+			}
+		});
+
+	async function savePost() {
+		try {
+			const id = await db.savedPosts.add({
+				slug: slug,
+				href: href,
+				src: src,
+				alt: alt,
+				datetime: datetime,
+				published: published,
+				title: title,
+				author: author
+			});
+
+			savedID = id;
+		} catch (error) {
+			console.error(`Failed to save post: ${error}`);
+		}
+	}
+
+	async function unsavePost() {
+		try {
+			await db.savedPosts.delete(savedID);
+		} catch (error) {
+			console.error(`Failed to unsave post: ${error}`);
+		}
+	}
 </script>
 
 <article>
@@ -18,6 +60,11 @@
 		</a>
 		<button
 			on:click={() => {
+				if (unsaved) {
+					savePost();
+				} else {
+					unsavePost();
+				}
 				unsaved = !unsaved;
 			}}
 		>
