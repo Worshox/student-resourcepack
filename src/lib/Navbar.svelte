@@ -25,7 +25,7 @@
 			/><path fill="none" d="M0 0h36v36H0z" /></svg
 		>
 	</a>
-	<a href="/posluchaj" class={$page.url.pathname === '/posluchaj' ? 'active' : ''}>
+	<a href="/media-room" class={$page.url.pathname === '/media-room' ? 'active' : ''}>
 		<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 36 36"
 			><path
 				d="M32.12 10H3.88A1.88 1.88 0 0 0 2 11.88v18.24A1.88 1.88 0 0 0 3.88 32h28.24A1.88 1.88 0 0 0 34 30.12V11.88A1.88 1.88 0 0 0 32.12 10ZM32 30H4V12h28Z"
