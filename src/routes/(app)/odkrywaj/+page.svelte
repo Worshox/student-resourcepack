@@ -24,7 +24,7 @@
 
 <h1>Odkrywaj</h1>
 
-<Searchbar />
+<!-- <Searchbar /> -->
 <Topics />
 
 <section>
